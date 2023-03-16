@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'Inter', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+}
+@font-face {
+    font-family: 'InterBold', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+}
+
+.bgStripe{
+    background-color: hsl(228, 100%, 71%);
+    z-index: -1;
+    position:relative;
+    
+}
+.bgStripe::before{
+    background-color:hsl(228, 100%, 76%);
+    content: "";
+    position: absolute;
+    top:100%;
+    left: 0;
+    right: 0;
+    height: 22vh;
+}
+
+.font {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.bold{
+    font-family: 'InterBold', sans-serif;
+    font-weight: 700;
+}
+
+#custom-switch{
+    /* background-image: linear-gradient( #388fe665, #3dd98182); */
+    /* background-image: hsl(230, 22%, 74%); */
+}
+.switch{
+    color: hsl(228, 12%, 44%);
+}
+
+.card {
+    margin: 0 auto;
+    text-align: center;
+    background-color: hsl(227, 47%, 96%) !important;
+    /* border-style: none !important; */
+    border-radius: 5px;
+    border-width: 0px !important;
+}
+
+.card :hover {
+    background-color: hsl(240, 24%, 91%) !important;
+}
+
+.percentages{
+    /* margin: 0 auto;
+    display:flex;
+    justify-content:center;
+    vertical-align: middle;
+    align-self: flex-end;
+    align-items: flex-end;
+    align-content: flex-end; */
+    margin-bottom: -100px;
+}
+
+.redText{
+    color: hsl(356, 69%, 56%);
+}
+.greenText{
+    color: hsl(163, 72%, 41%);
+}
+
+
+.LMlightText{
+    color: hsl(228, 12%, 44%);
+}
+.LMdarkText{
+    color: hsl(230, 17%, 14%);
+}
+
+.FB-stripe{
+    border-top-color: hsl(208, 92%, 53%) !important;
+    border-top-width: thick !important;
+}
+.Twitter-stripe{
+    border-top-color: hsl(203, 89%, 53%) !important;
+    border-top-width: thick !important;
+}
+.Insta-stripe{
+    border-top-color: linear-gradient(left, #fdc468, #df4996) !important;
+    border-top-width: thick !important;
+}
+.YT-stripe{
+    border-top-color: hsl(348, 97%, 39%) !important;
+    border-top-width: thick !important;
+}
+    
