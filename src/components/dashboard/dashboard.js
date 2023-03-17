@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import './dashboard.css';
 import './darkboard.css';
+import './dashboard.css';
 import { Container, Row, Col, Form, Card } from 'react-bootstrap';
 let FBlogo = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path fill="#178FF5" d="M18.896 0H1.104C.494 0 0 .494 0 1.104v17.793C0 19.506.494 20 1.104 20h9.58v-7.745H8.076V9.237h2.606V7.01c0-2.583 1.578-3.99 3.883-3.99 1.104 0 2.052.082 2.329.119v2.7h-1.598c-1.254 0-1.496.597-1.496 1.47v1.928h2.989l-.39 3.018h-2.6V20h5.098c.608 0 1.102-.494 1.102-1.104V1.104C20 .494 19.506 0 18.896 0z" /></svg>;
 let Twitterlogo = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"><path fill="#1DA1F2" d="M20 1.924a8.192 8.192 0 01-2.357.646A4.11 4.11 0 0019.448.3a8.22 8.22 0 01-2.606.996A4.096 4.096 0 0013.847 0c-2.65 0-4.596 2.472-3.998 5.037A11.648 11.648 0 011.392.752a4.109 4.109 0 001.27 5.478 4.086 4.086 0 01-1.858-.513C.76 7.616 2.122 9.395 4.095 9.79a4.113 4.113 0 01-1.853.07 4.106 4.106 0 003.833 2.849A8.25 8.25 0 010 14.41a11.616 11.616 0 006.29 1.843c7.618 0 11.922-6.434 11.663-12.205A8.354 8.354 0 0020 1.924z" /></svg>;
@@ -11,44 +11,28 @@ let downIcon = <svg xmlns="http://www.w3.org/2000/svg" width="8" height="4"><pat
 
 export default function Dashboard() {
 
-    // let ID = "lightMode";
-    // const changeColor = async () => {
-    //     if (ID === "lightMode") {
-    //         ID = "darkMode";
-    //         console.log(ID);
-    //     }
-    //     else if (ID === "darkMode") {
-    //         ID = "lightMode";
-    //         console.log(ID);
-    //     }
-    // }
-
-    // if(ID === "lightMode"){
-        
-    // }
-    // else if( ID === "darkMode"){
-
-    // }
-
     const [isDark, setIsDark] = useState(false);
     const changeColor = () => {
-        if(isDark === false){
-            setIsDark(true);
-            console.log("click to true");
+        // if(isDark === false){
+        //     setIsDark(true);
+        //     console.log("click to true");
 
-        }
-        else if(isDark === true){
-            setIsDark(false);
-            console.log("click to false")
-        };
+        // }
+        // else if(isDark === true){
+        //     setIsDark(false);
+        //     console.log("click to false")
+        // };
 
+        setIsDark(prevMode => !prevMode);
+        console.log("click");
 
     }
 
     return (
-        <div>
-            <div  className='bgStripe'></div>
-            <Container className='font LMdarkText'>
+        <div className={isDark ? 'bgD' : 'bgL'}>
+            
+            <div className={isDark ? 'bgStripeD' : 'bgStripe'}></div>
+            <Container className={isDark ? 'font whiteText' : 'font LMdarktexT'}>
                 <Container>
                     <Container>
                         <Container>
@@ -58,21 +42,21 @@ export default function Dashboard() {
                                 <Row>
                                     <Col>
                                         <h3 className='bold'>Social Media Dashboard</h3>
-                                        <p className='bold LMlightText'>Total followers: 23,004</p>
+                                        <p className={isDark ? 'bold greyText' : 'bold LMlightText'}>Total followers: 23,004</p>
                                     </Col>
                                     <Col>
                                         <Form>
-                                            <Form.Check reverse type="switch" onClick={changeColor} label="Dark Mode" className='switch bold' id="custom-switch" />
+                                            <Form.Check reverse type="switch" onClick={changeColor} label="Dark Mode" className={isDark ? 'bold whiteText' : 'bold LMlightText'} id="custom-switch" />
                                         </Form>
                                     </Col>
                                 </Row>
                                 <br />
                                 <Row >
-                                    <Card className='FB-stripe' style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD FB-stripe' : 'cardL FB-stripe'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <br />
                                             <Card.Text>
-                                                <p className='bold LMlightText' style={{ fontSize: '14px' }}>{FBlogo} @nathanf</p>
+                                                <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>{FBlogo} @nathanf</p>
                                                 <h1 className='bold' style={{ fontSize: '60px' }}>1987</h1>
                                                 <h6>FOLLOWERS</h6>
                                                 <br />
@@ -81,11 +65,11 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className='Twitter-stripe' style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD Twitter-stripe' : 'cardL Twitter-stripe'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <br />
                                             <Card.Text>
-                                                <p className='bold LMlightText' style={{ fontSize: '14px' }}>{Twitterlogo} @nathanf</p>
+                                                <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>{Twitterlogo} @nathanf</p>
                                                 <h1 className='bold' style={{ fontSize: '60px' }}>1044</h1>
                                                 <h6>FOLLOWERS</h6>
                                                 <br />
@@ -94,11 +78,11 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className='Insta-stripe' style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD Insta-stripe' : 'cardL Insta-stripe'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <br />
                                             <Card.Text>
-                                                <p className='bold LMlightText' style={{ fontSize: '14px' }}>{Instalogo} @realnathanf</p>
+                                                <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>{Instalogo} @realnathanf</p>
                                                 <h1 className='bold' style={{ fontSize: '60px' }}>11k</h1>
                                                 <h6>FOLLOWERS</h6>
                                                 <br />
@@ -107,11 +91,11 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className='YT-stripe' style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD YT-stripe' : 'cardL YT-stripe'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <br />
                                             <Card.Text>
-                                                <p className='bold LMlightText' style={{ fontSize: '14px' }}>{YTlogo} Nathan F.</p>
+                                                <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>{YTlogo} Nathan F.</p>
                                                 <h1 className='bold' style={{ fontSize: '60px' }}>8239</h1>
                                                 <h6>SUBSCRIBERS</h6>
                                                 <br />
@@ -123,15 +107,15 @@ export default function Dashboard() {
                                 <br />
                                 <br />
                                 <Row>
-                                    <h4 className='bold LMlightText'>Overview - Today</h4>
+                                    <h4 className={isDark ? 'bold greyText' : 'bold LMlightText'}>Overview - Today</h4>
                                 </Row>
                                 <br />
                                 <Row>
-                                    <Card style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
-                                                    <p className='LMlightText bold' style={{ fontSize: '14px' }}>Page Views</p>
+                                                    <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>Page Views</p>
                                                 </Col>
                                                 <Col>
                                                     <div>{FBlogo}</div>
@@ -148,11 +132,11 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
-                                                    <p className='LMlightText bold' style={{ fontSize: '14px' }}>Likes</p>
+                                                    <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>Likes</p>
                                                 </Col>
                                                 <Col>
                                                     <div>{FBlogo}</div>
@@ -169,11 +153,11 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
-                                                    <p className='LMlightText bold' style={{ fontSize: '14px' }}>Likes</p>
+                                                    <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>Likes</p>
                                                 </Col>
                                                 <Col>
                                                     <div>{Instalogo}</div>
@@ -190,11 +174,11 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
-                                                    <p className='LMlightText bold' style={{ fontSize: '14px' }}>Profile Views</p>
+                                                    <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>Profile Views</p>
                                                 </Col>
                                                 <Col>
                                                     <div>{Instalogo}</div>
@@ -213,11 +197,11 @@ export default function Dashboard() {
                                 </Row>
                                 <br />
                                 <Row>
-                                    <Card style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
-                                                    <p className='LMlightText bold' style={{ fontSize: '14px' }}>Retweets</p>
+                                                    <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>Retweets</p>
                                                 </Col>
                                                 <Col>
                                                     <div>{Twitterlogo}</div>
@@ -234,11 +218,11 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
-                                                    <p className='LMlightText bold' style={{ fontSize: '14px' }}>Likes</p>
+                                                    <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>Likes</p>
                                                 </Col>
                                                 <Col>
                                                     <div>{Twitterlogo}</div>
@@ -255,11 +239,11 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
-                                                    <p className='LMlightText bold' style={{ fontSize: '14px' }}>Page Views</p>
+                                                    <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>Page Views</p>
                                                 </Col>
                                                 <Col>
                                                     <div>{YTlogo}</div>
@@ -276,11 +260,11 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
-                                                    <p className='LMlightText bold' style={{ fontSize: '14px' }}>Total Views</p>
+                                                    <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>Total Views</p>
                                                 </Col>
                                                 <Col>
                                                     <div>{YTlogo}</div>
@@ -302,7 +286,6 @@ export default function Dashboard() {
                     </Container>
                 </Container>
             </Container>
-            {buttonClicked ? <link rel="stylesheet" href="./darkboard.css" /> : null}
         </div>
     )
 }
