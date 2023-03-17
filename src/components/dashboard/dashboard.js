@@ -9,7 +9,7 @@ let YTlogo = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><pat
 let upIcon = <svg xmlns="http://www.w3.org/2000/svg" width="8" height="4"><path fill="#1EB589" fill-rule="evenodd" d="M0 4l4-4 4 4z" /></svg>;
 let downIcon = <svg xmlns="http://www.w3.org/2000/svg" width="8" height="4"><path fill="#DC414C" fill-rule="evenodd" d="M0 0l4 4 4-4z" /></svg>;
 
-export default function Dashboard(sM) {
+export default function Dashboard(prr) {
 
     const [isDark, setIsDark] = useState(false);
 
@@ -18,7 +18,7 @@ export default function Dashboard(sM) {
         console.log("click");
     }
 
-    const socialMedia = sM.socialMedia;
+    const props = prr.props;
 
     return (
         <div className={isDark ? 'bgD' : 'bgL'}>
@@ -50,8 +50,8 @@ export default function Dashboard(sM) {
                                             <br />
                                             <br />
                                             <Card.Text>
-                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{FBlogo} {socialMedia.fb}</p>
-                                                <p className='bold largeNum'>1987</p>
+                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{FBlogo} {props.fb}</p>
+                                                <p className='bold largeNum'>{props.fbNum}</p>
                                                 <p className={isDark ? 'greyText followers' : 'LMlightText followers'}>FOLLOWERS</p>
                                                 <br />
                                                 <h6 className='greenText bold today'>{upIcon} 12 today</h6>
@@ -64,8 +64,8 @@ export default function Dashboard(sM) {
                                             <br />
                                             <br />
                                             <Card.Text>
-                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{Twitterlogo} {socialMedia.tw}</p>
-                                                <p className='bold largeNum'>1044</p>
+                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{Twitterlogo} {props.tw}</p>
+                                                <p className='bold largeNum'>{props.twNum}</p>
                                                 <p className={isDark ? 'greyText followers' : 'LMlightText followers'}>FOLLOWERS</p>
                                                 <br />
                                                 <h6 className='greenText bold today'>{upIcon} 99 today</h6>
@@ -78,8 +78,8 @@ export default function Dashboard(sM) {
                                             <br />
                                             <br />
                                             <Card.Text>
-                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{Instalogo} {socialMedia.insta}</p>
-                                                <p className='bold largeNum'>11k</p>
+                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{Instalogo} {props.insta}</p>
+                                                <p className='bold largeNum'>{props.instaNum}</p>
                                                 <p className={isDark ? 'greyText followers' : 'LMlightText followers'}>FOLLOWERS</p>
                                                 <br />
                                                 <h6 className='greenText bold today'>{upIcon} 1099 today</h6>
@@ -92,8 +92,8 @@ export default function Dashboard(sM) {
                                             <br />
                                             <br />
                                             <Card.Text>
-                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{YTlogo} {socialMedia.yt}</p>
-                                                <p className='bold largeNum'>8239</p>
+                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{YTlogo} {props.yt}</p>
+                                                <p className='bold largeNum'>{props.ytNum}</p>
                                                 <p className={isDark ? 'greyText followers' : 'LMlightText followers'}>SUBSCRIBERS</p>
                                                 <br />
                                                 <h6 className='redText bold today'>{downIcon} 144 today</h6>
@@ -120,7 +120,7 @@ export default function Dashboard(sM) {
                                             </Row>
                                             <Row>
                                                 <Col>
-                                                    <h1 className='bold' style={{ fontSize: '35px' }}>87</h1>
+                                                    <h1 className='bold' style={{ fontSize: '35px' }}>{props.fb1}</h1>
                                                 </Col>
                                                 <Col>
                                                     <h6 className='percentages greenText bold'><span>{upIcon}</span> 3%</h6>
@@ -141,7 +141,7 @@ export default function Dashboard(sM) {
                                             </Row>
                                             <Row>
                                                 <Col>
-                                                    <h1 className='bold' style={{ fontSize: '35px' }}>52</h1>
+                                                    <h1 className='bold' style={{ fontSize: '35px' }}>{props.fb2}</h1>
                                                 </Col>
                                                 <Col>
                                                     <h6 className='percentages redText bold'><span>{downIcon}</span> 2%</h6>
@@ -162,7 +162,7 @@ export default function Dashboard(sM) {
                                             </Row>
                                             <Row>
                                                 <Col>
-                                                    <h1 className='bold' style={{ fontSize: '35px' }}>5462</h1>
+                                                    <h1 className='bold' style={{ fontSize: '35px' }}>{props.insta1}</h1>
                                                 </Col>
                                                 <Col>
                                                     <h6 className='percentages greenText bold'><span>{upIcon}</span> 2257%</h6>
@@ -183,7 +183,7 @@ export default function Dashboard(sM) {
                                             </Row>
                                             <Row>
                                                 <Col>
-                                                    <h1 className='bold' style={{ fontSize: '35px' }}>52k</h1>
+                                                    <h1 className='bold' style={{ fontSize: '35px' }}>{props.insta2}</h1>
                                                 </Col>
                                                 <Col>
                                                     <h6 className='percentages greenText bold'><span>{upIcon}</span> 1375%</h6>
@@ -206,7 +206,7 @@ export default function Dashboard(sM) {
                                             </Row>
                                             <Row>
                                                 <Col>
-                                                    <h1 className='bold' style={{ fontSize: '35px' }}>117</h1>
+                                                    <h1 className='bold' style={{ fontSize: '35px' }}>{props.tw1}</h1>
                                                 </Col>
                                                 <Col>
                                                     <h6 className='percentages greenText bold'><span>{upIcon}</span> 303%</h6>
@@ -227,7 +227,7 @@ export default function Dashboard(sM) {
                                             </Row>
                                             <Row>
                                                 <Col>
-                                                    <h1 className='bold' style={{ fontSize: '35px' }}>507</h1>
+                                                    <h1 className='bold' style={{ fontSize: '35px' }}>{props.tw2}</h1>
                                                 </Col>
                                                 <Col>
                                                     <h6 className='percentages greenText bold'><span>{upIcon}</span> 553%</h6>
@@ -248,7 +248,7 @@ export default function Dashboard(sM) {
                                             </Row>
                                             <Row>
                                                 <Col>
-                                                    <h1 className='bold' style={{ fontSize: '35px' }}>107</h1>
+                                                    <h1 className='bold' style={{ fontSize: '35px' }}>{props.yt1}</h1>
                                                 </Col>
                                                 <Col>
                                                     <h6 className='percentages redText bold'><span>{downIcon}</span> 19%</h6>
@@ -269,7 +269,7 @@ export default function Dashboard(sM) {
                                             </Row>
                                             <Row>
                                                 <Col>
-                                                    <h1 className='bold' style={{ fontSize: '35px' }}>1407</h1>
+                                                    <h1 className='bold' style={{ fontSize: '35px' }}>{props.yt2}</h1>
                                                 </Col>
                                                 <Col>
                                                     <h6 className='percentages redText bold'><span>{downIcon}</span> 12%</h6>
