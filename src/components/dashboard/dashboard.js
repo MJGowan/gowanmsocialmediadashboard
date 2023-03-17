@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './darkboard.css';
 import './dashboard.css';
 import { Container, Row, Col, Form, Card } from 'react-bootstrap';
@@ -9,28 +9,20 @@ let YTlogo = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><pat
 let upIcon = <svg xmlns="http://www.w3.org/2000/svg" width="8" height="4"><path fill="#1EB589" fill-rule="evenodd" d="M0 4l4-4 4 4z" /></svg>;
 let downIcon = <svg xmlns="http://www.w3.org/2000/svg" width="8" height="4"><path fill="#DC414C" fill-rule="evenodd" d="M0 0l4 4 4-4z" /></svg>;
 
-export default function Dashboard() {
+export default function Dashboard(sM) {
 
     const [isDark, setIsDark] = useState(false);
+
     const changeColor = () => {
-        // if(isDark === false){
-        //     setIsDark(true);
-        //     console.log("click to true");
-
-        // }
-        // else if(isDark === true){
-        //     setIsDark(false);
-        //     console.log("click to false")
-        // };
-
         setIsDark(prevMode => !prevMode);
         console.log("click");
-
     }
+
+    const socialMedia = sM.socialMedia;
 
     return (
         <div className={isDark ? 'bgD' : 'bgL'}>
-            
+
             <div className={isDark ? 'bgStripeD' : 'bgStripe'}></div>
             <Container className={isDark ? 'font whiteText' : 'font LMdarktexT'}>
                 <Container>
@@ -40,66 +32,71 @@ export default function Dashboard() {
                                 <br />
                                 <br />
                                 <Row>
-                                    <Col>
-                                        <h3 className='bold'>Social Media Dashboard</h3>
+                                    <div className={isDark ? 'row w90' : 'row w90'}>
+                                        <p className='bold title'>Social Media Dashboard</p>
                                         <p className={isDark ? 'bold greyText' : 'bold LMlightText'}>Total followers: 23,004</p>
-                                    </Col>
-                                    <Col>
+                                    </div>
+                                    {/* <hr/> */}
+                                    <div>
                                         <Form>
-                                            <Form.Check reverse type="switch" onClick={changeColor} label="Dark Mode" className={isDark ? 'bold whiteText' : 'bold LMlightText'} id="custom-switch" />
+                                            <Form.Check reverse type="switch" onClick={changeColor} label="Dark Mode" className={isDark ? 'bold greyText switch' : 'bold LMlightText switch'} id="custom-switch" />
                                         </Form>
-                                    </Col>
+                                    </div>
                                 </Row>
                                 <br />
                                 <Row >
-                                    <Card className={isDark ? 'cardD FB-stripe' : 'cardL FB-stripe'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD topCards FB-stripe' : 'cardL topCards FB-stripe'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <br />
+                                            <br />
                                             <Card.Text>
-                                                <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>{FBlogo} @nathanf</p>
-                                                <h1 className='bold' style={{ fontSize: '60px' }}>1987</h1>
-                                                <h6>FOLLOWERS</h6>
+                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{FBlogo} {socialMedia.fb}</p>
+                                                <p className='bold largeNum'>1987</p>
+                                                <p className={isDark ? 'greyText followers' : 'LMlightText followers'}>FOLLOWERS</p>
                                                 <br />
-                                                <h6 className='greenText bold'>{upIcon} 12 today</h6>
+                                                <h6 className='greenText bold today'>{upIcon} 12 today</h6>
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className={isDark ? 'cardD Twitter-stripe' : 'cardL Twitter-stripe'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD topCards Twitter-stripe' : 'cardL topCards Twitter-stripe'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <br />
+                                            <br />
                                             <Card.Text>
-                                                <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>{Twitterlogo} @nathanf</p>
-                                                <h1 className='bold' style={{ fontSize: '60px' }}>1044</h1>
-                                                <h6>FOLLOWERS</h6>
+                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{Twitterlogo} {socialMedia.tw}</p>
+                                                <p className='bold largeNum'>1044</p>
+                                                <p className={isDark ? 'greyText followers' : 'LMlightText followers'}>FOLLOWERS</p>
                                                 <br />
-                                                <h6 className='greenText bold'>{upIcon} 99 today</h6>
+                                                <h6 className='greenText bold today'>{upIcon} 99 today</h6>
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className={isDark ? 'cardD Insta-stripe' : 'cardL Insta-stripe'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD topCards Insta-stripe' : 'cardL topCards Insta-stripe'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <br />
+                                            <br />
                                             <Card.Text>
-                                                <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>{Instalogo} @realnathanf</p>
-                                                <h1 className='bold' style={{ fontSize: '60px' }}>11k</h1>
-                                                <h6>FOLLOWERS</h6>
+                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{Instalogo} {socialMedia.insta}</p>
+                                                <p className='bold largeNum'>11k</p>
+                                                <p className={isDark ? 'greyText followers' : 'LMlightText followers'}>FOLLOWERS</p>
                                                 <br />
-                                                <h6 className='greenText bold'>{upIcon} 1099 today</h6>
+                                                <h6 className='greenText bold today'>{upIcon} 1099 today</h6>
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className={isDark ? 'cardD YT-stripe' : 'cardL YT-stripe'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD topCards YT-stripe' : 'cardL topCards YT-stripe'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <br />
+                                            <br />
                                             <Card.Text>
-                                                <p className={isDark ? 'bold greyText' : 'bold LMlightText'} style={{ fontSize: '14px' }}>{YTlogo} Nathan F.</p>
-                                                <h1 className='bold' style={{ fontSize: '60px' }}>8239</h1>
-                                                <h6>SUBSCRIBERS</h6>
+                                                <p className={isDark ? 'bold greyText card-text' : 'bold LMlightText card-text'} style={{ fontSize: '14px' }}>{YTlogo} {socialMedia.yt}</p>
+                                                <p className='bold largeNum'>8239</p>
+                                                <p className={isDark ? 'greyText followers' : 'LMlightText followers'}>SUBSCRIBERS</p>
                                                 <br />
-                                                <h6 className='redText bold'>{downIcon} 144 today</h6>
+                                                <h6 className='redText bold today'>{downIcon} 144 today</h6>
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
@@ -111,7 +108,7 @@ export default function Dashboard() {
                                 </Row>
                                 <br />
                                 <Row>
-                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
@@ -132,7 +129,7 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
@@ -153,7 +150,7 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
@@ -174,7 +171,7 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
@@ -197,7 +194,7 @@ export default function Dashboard() {
                                 </Row>
                                 <br />
                                 <Row>
-                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
@@ -218,7 +215,7 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
@@ -239,7 +236,7 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>
@@ -260,7 +257,7 @@ export default function Dashboard() {
                                         </Card.Body>
                                     </Card>
 
-                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '18rem' }}>
+                                    <Card className={isDark ? 'cardD' : 'cardL'} style={{ width: '17rem' }}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>

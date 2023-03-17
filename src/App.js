@@ -5,7 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div>
-      <Dashboard/>
+      <Dashboard
+      socialMedia={{
+        fb:"@nathanf",
+        tw:"@nathanf",
+        insta:"@realnathanf",
+        yt:"Nathan F."}}/>
     </div>
   );
 }
