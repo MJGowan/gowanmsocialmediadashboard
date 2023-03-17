@@ -4,7 +4,7 @@
 //With the assets given to you remake the following Project - Social Media Dashboard
 //Goal is to recreate this challenge as close to the design as possible and having it function properly.
 //Tried adding props into the project and struggled to add multiple separate props, so I went with the route of putting everything in one prop
-//Peer reviewed by
+//Peer reviewed by Marcel - The application looks really nice. The dark mode works and everything is responsive. My only critique is that the toggle switch doesn’t change color, but other than that It is really good! Great Job!
 
 import './App.css';
 import Dashboard from './components/dashboard/dashboard';
